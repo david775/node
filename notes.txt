@@ -1,7 +1,11 @@
 window -> globalThis (variable global en toda nuestra aplicación)
 
------------
+_______________
 CommonJS  => se encuentra en la carpeta de CJS
 .js -> por defecto utiliza CommonJS
 .mjs -> para utilizar ES Modules
 .cjs -> para utilizar CommonJS
+
+_______________
+
+fichero == archivo
