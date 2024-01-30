@@ -9,3 +9,25 @@ CommonJS  => se encuentra en la carpeta de CJS
 _______________
 
 fichero == archivo
+
+
+PORT=1234 node 9.http.js => port es una variable de entorno y se envia cuando se ejecuta el comando en la consola
+
+
+construir una promesa 
+const miPromesa = new Promise((resolve, reject) => {
+  // Realizar una operación asincrónica, por ejemplo, una solicitud de red
+  if (operacionExitosa) {
+    resolve("¡Operación exitosa!"); // Se resuelve la promesa con un valor
+  } else {
+    reject("Ocurrió un error"); // Se rechaza la promesa con un motivo de error
+  }
+});
+
+miPromesa
+  .then((resultado) => {
+    console.log(resultado); // Manejar el resultado exitoso
+  })
+  .catch((error) => {
+    console.error(error); // Manejar el error
+  });
