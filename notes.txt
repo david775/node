@@ -31,3 +31,9 @@ miPromesa
   .catch((error) => {
     console.error(error); // Manejar el error
   });
+
+
+COMANDO node --watch ./clase-2/1.http.js // sirve para mantener actualizada la aplicación a la hora de que hayan cambios
+    es experimental
+
+
