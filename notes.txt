@@ -33,7 +33,14 @@ miPromesa
   });
 
 
-COMANDO node --watch ./clase-2/1.http.js // sirve para mantener actualizada la aplicación a la hora de que hayan cambios
+COMANDO node --watch ./clase-2/1.http.js //
+  sirve para mantener actualizada la aplicación a la hora de que se hagan cambios
     es experimental
+  se puede usar nodemon en ves del comando --watch
 
+al ejecutar [pnpm install any-dependency -E] 
+  este comando es para instalar la dependencia de producción
+  el "-E" es para que instale sin el ^
 
+al ejecutar [pnpm install any-dependency -D]  
+  para instalar en como dev
