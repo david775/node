@@ -8,7 +8,7 @@ GET http://localhost:1234/movies/6a360a18-c645-4b47-9a7b-2a71babbf3e0
 GET http://localhost:1234/movies?genre=sci-Fi
 
 ### Crear una pelicula con POST
-POST http://localhost:1234/movie
+POST http://localhost:1234/movies
 Content-Type: application/json
 
 {
@@ -22,4 +22,13 @@ Content-Type: application/json
     "Drama"
   ],
   "rate": 9.5 
+}
+
+
+### Actualizar una pelicula con PATCH
+PATCH http://localhost:1234/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
+Content-Type: application/json
+
+{
+  "year" : 1993
 }

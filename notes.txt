@@ -44,3 +44,5 @@ al ejecutar [pnpm install any-dependency -E]
 
 al ejecutar [pnpm install any-dependency -D]  
   para instalar en como dev
+
+Para validar json de un post que se este obteniendo se puede usar ["Zod"]
