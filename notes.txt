@@ -48,3 +48,5 @@ al ejecutar [pnpm install any-dependency -D]
 Para validar json de un post que se este obteniendo se puede usar ["Zod"]
 
 
+para crear servidor de la pagina en local 
+  npx servor [direccion_carpeta]

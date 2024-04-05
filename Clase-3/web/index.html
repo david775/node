@@ -5,8 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Probar API Rest</title>
   <style>
+      section.catalog{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        flex-direction: row;
+      }
       article {
         padding: 1rem;
+        width: 330px;
       }
       img{
         height: auto;
@@ -16,7 +23,7 @@
   </style>
   <script>
     fetch('http://localhost:1234/movies')
-      .then(res=> res.json)
+      .then(res=> res.json())
       .then(movies=>{
         const html = movies.map(movie =>{
           return `
@@ -27,13 +34,13 @@
           </article>
           `
         }).join('')
-        document.querySelector('main').innerHTML = html;
+        document.querySelector('section.catalog').innerHTML = html;
       })
   </script>
 </head>
 <body>
-  <h1>HOla</h1>
   <main>
+    <section class="catalog"></section>
   </main>
 </body>
 </html>

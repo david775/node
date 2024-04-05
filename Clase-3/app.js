@@ -23,6 +23,16 @@ const ACCEPTED_ORIGINS = [
 
 // Todos los recursos que sean MOVIES se identifican con /movies
 app.get('/movies', (req, res) => {
+  // Los headers se agregan al inicio del script
+  const origin = req.header('origin')
+  if (ACCEPTED_ORIGINS.includes(origin) || !origin) {
+    res.setHeader('Access-Control-Allow-Origin', origin)
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE')
+    res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method')
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+    res.header('Access-Control-Allow-Credentials', true)
+  }
+
   const { genre } = req.query
   if (genre) {
     // const filteredMovies = movies.filter(movie => movie.genre.includes(genre))
@@ -31,6 +41,7 @@ app.get('/movies', (req, res) => {
   }
 
   res.json(movies)
+  // Printing those headers
 })
 
 // El :id se le llama segmento dinámico app.get('/movies/:id/:mas/:otro', (req, res) => {
@@ -85,18 +96,6 @@ app.patch('/movies/:id', (req, res) => {
   return res.status(200).json(updateMovie)
 })
 
-app.options('/movies/:id', (req, res) => {
-  const origin = req.header('origin')
-  console.log('origin', origin)
-  if (ACCEPTED_ORIGINS.includes(origin) || !origin) {
-    res.header('Access-Control-Allow-Origin', origin)
-    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE')
-    res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method')
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization')
-    res.header('Access-Control-Allow-Credentials', true)
-    res.send(200)
-  }
-})
 const PORT = process.env.port ?? '1234'
 app.listen(PORT, () => {
   console.log(`Server listening on port http://localhost:${PORT}`)
