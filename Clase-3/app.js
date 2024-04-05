@@ -7,6 +7,20 @@ const app = express()
 app.use(express.json())
 app.disable('x-powered-by')
 
+// Métodos normales: GET/HEAD/POST
+// Métodos complejos: PUT/PATCH/DELE
+
+// CORS PRE-Flight
+// OPTIONS
+const ACCEPTED_ORIGINS = [
+  'http://127.0.0.1:5500',
+  'http://localhost:8080',
+  'http://localhost:1234',
+  'https://movies.com',
+  'https://midu.dev',
+  'https://hector.dev'
+]
+
 // Todos los recursos que sean MOVIES se identifican con /movies
 app.get('/movies', (req, res) => {
   const { genre } = req.query
@@ -65,15 +79,24 @@ app.patch('/movies/:id', (req, res) => {
     ...movies[movieIndex],
     ...result.data
   }
-  console.log(movies[movieIndex] + '1 ', result.data)
-  console.log(updateMovie)
 
   movies[movieIndex] = updateMovie
 
   return res.status(200).json(updateMovie)
 })
-// })
 
+app.options('/movies/:id', (req, res) => {
+  const origin = req.header('origin')
+  console.log('origin', origin)
+  if (ACCEPTED_ORIGINS.includes(origin) || !origin) {
+    res.header('Access-Control-Allow-Origin', origin)
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE')
+    res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method')
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+    res.header('Access-Control-Allow-Credentials', true)
+    res.send(200)
+  }
+})
 const PORT = process.env.port ?? '1234'
 app.listen(PORT, () => {
   console.log(`Server listening on port http://localhost:${PORT}`)

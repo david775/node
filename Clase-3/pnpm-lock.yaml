@@ -8,6 +8,9 @@ dependencies:
   express:
     specifier: 4.18.2
     version: 4.18.2
+  servor:
+    specifier: 4.0.2
+    version: 4.0.2
   zod:
     specifier: 3.22.4
     version: 3.22.4
@@ -402,6 +405,11 @@ packages:
       send: 0.18.0
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /servor@4.0.2:
+    resolution: {integrity: sha512-MlmQ5Ntv4jDYUN060x/KEmN7emvIqKMZ9OkM+nY8Bf2+KkyLmGsTqWLyAN2cZr5oESAcH00UanUyyrlS1LRjFw==}
+    hasBin: true
     dev: false
 
   /set-function-length@1.2.0:

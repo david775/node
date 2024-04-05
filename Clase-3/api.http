@@ -30,5 +30,7 @@ PATCH http://localhost:1234/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
 Content-Type: application/json
 
 {
-  "year" : 1993
+  "id":1,
+  "title": "hola",
+  "year" : "1993"
 }

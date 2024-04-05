@@ -16,7 +16,7 @@ PORT=1234 node 9.http.js => port es una variable de entorno y se envia cuando se
 
 construir una promesa 
 const miPromesa = new Promise((resolve, reject) => {
-  // Realizar una operación asincrónica, por ejemplo, una solicitud de red
+  // Realizar una operación asincronía, por ejemplo, una solicitud de red
   if (operacionExitosa) {
     resolve("¡Operación exitosa!"); // Se resuelve la promesa con un valor
   } else {
@@ -46,3 +46,5 @@ al ejecutar [pnpm install any-dependency -D]
   para instalar en como dev
 
 Para validar json de un post que se este obteniendo se puede usar ["Zod"]
+
+
