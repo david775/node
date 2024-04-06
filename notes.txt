@@ -50,3 +50,23 @@ Para validar json de un post que se este obteniendo se puede usar ["Zod"]
 
 para crear servidor de la pagina en local 
   npx servor [direccion_carpeta]
+
+
+
+para importar json
+  actualmente no hay un comando especifico excepto el with que todavia no se ha habilitado 
+  // import movies from './movies.json' with {type: 'json'}
+// como leer un json en ESModules
+// import fs from 'node:fs'
+// const movies = JSON.parse(fs.readFileSync('./movies.json'))
+
+// como leer un json en ESModules recomendado por ahora
+// esta en UTILS.js
+
+en el archivo utils => 
+  import { createRequire } from 'node:module'
+  const require = createRequire(import.meta.url)
+
+  export const readJSON = (path) => require(path)
+se llama en cualquier parte
+import { readJSON } from './utils.js'

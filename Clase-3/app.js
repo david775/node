@@ -73,6 +73,22 @@ app.post('/movies', (req, res) => {
   res.status(200).json(newMovie)
 })
 
+app.delete('/movies/:id', (req, res) => {
+  // const result = validatePartialMovie(req.params)
+  // if (!result.success) {
+  //   // 422 Unprocessable entity
+  //   return res.status(400).json({ error: JSON.parse(result.error.message) })
+  // }
+
+  const { id } = req.params
+  const movieIndex = movies.findIndex(movie => movie.id === id)
+  if (movieIndex === -1) return res.status(404).json({ message: 'Movie not found' })
+
+  movies.splice(movieIndex, -1)
+
+  return res.json({ message: 'Movie deleted' })
+})
+
 app.patch('/movies/:id', (req, res) => {
   const result = validatePartialMovie(req.body)
   if (!result.success) {
@@ -96,6 +112,7 @@ app.patch('/movies/:id', (req, res) => {
   return res.status(200).json(updateMovie)
 })
 
+// cuando se despliegue hay que mirar las definiciones de puertos y no dejarlos quemados
 const PORT = process.env.port ?? '1234'
 app.listen(PORT, () => {
   console.log(`Server listening on port http://localhost:${PORT}`)
