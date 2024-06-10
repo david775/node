@@ -70,3 +70,6 @@ en el archivo utils =>
   export const readJSON = (path) => require(path)
 se llama en cualquier parte
 import { readJSON } from './utils.js'
+
+
+cuando se utiliza un async await, se necesita manejar los errores
