@@ -25,7 +25,7 @@ Content-Type: application/json
 }
 
 ### Borrar pelicula
-DELETE http://localhost:1234/movies/5ad1a235-0d9c-410a-b32b-220d91689a08
+DELETE http://localhost:1234/movies/433d7f56-37cf-11ef-9cc1-f8b46ad4e732
 
 
 ### Actualizar una pelicula con PATCH
