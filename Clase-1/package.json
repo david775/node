@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/david775/node#readme",
   "dependencies": {
+    "node": "file:",
     "picocolors": "1.0.0"
   },
   "devDependencies": {
